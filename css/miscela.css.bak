@@ -1,0 +1,192 @@
+/*
+.home {
+	background-color: red;
+}
+.container {
+	background-color: white;
+}
+*/
+a, a:link, a:hover, a:visited, a:active { color: #000; }
+.reserved { text-align: right; }
+.splash a { 
+    display: block;
+    margin: 0 auto;    
+    width: 800px;
+}
+.header .nav, .header .nav li {
+    list-style-type: none;
+    float: left;
+}
+.header .nav {
+    border-bottom: 2px solid black;
+    line-height: 1.5;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 4.5em;
+    width: 100%;
+}
+.header .nav li {
+    background: url("../img/slash.png") no-repeat -5px 0;
+    margin-left: 42px;
+    text-transform: uppercase;
+    width: 100px;
+}
+.header .nav a {
+    color: Black;
+    margin-left: 1em;
+    text-decoration: none;
+}
+.header .nav a:after {
+    content: " ///";
+}
+.header .nav a:hover {
+    color: #da0019;
+}
+.header .nav .selected a {
+    color: #da0019;
+}
+.header .nav .selected {
+    background: none;
+}
+
+.area {
+    border-style: solid;
+    border-width: 4px;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-top: 0 none;
+    color: White;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    padding-bottom: 1px;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+}
+
+/*
+.aside h4 {
+    background: url(../img/highlight.png) no-repeat;
+    border-bottom: 4px solid Black;
+    color: White;
+	line-height: 1.5;
+    margin-bottom: 0.5em;
+    padding-bottom: 1px;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+}
+*/
+.aside .area {
+    background: url(../img/highlight.png) no-repeat;
+    border-color: Black;
+	line-height: 1.5;
+}
+.aside .article { 
+    border-bottom: 1px solid black;
+    margin: 0.5em 0;
+}
+.aside .placeholder {
+    background-color: Silver;
+    min-height: 90px;
+}
+.aside h5 {
+    border-bottom: 3px solid Black;
+    margin: -2.5em 0.5em 1.25em;
+    text-align: center;
+}
+.aside p { 
+    font-size: 80%; 
+    margin-bottom: 0.5em;
+}
+
+.main .article:first-child { margin-bottom: 1.5em; }
+.main .article:first-child .area {
+    background: url(../img/redhighlight.png) no-repeat;
+    border-color: #da0019;
+}
+.main .area {
+    background: url(../img/greyhighlight.png) no-repeat;
+    border-color: #bec0c2;
+}
+/*
+.main .article p {
+	color: red;
+	border-bottom: 3px solid red;
+	font-size: 250%;
+    margin: -1.5em 0.5em 1.5em;
+	text-align: center;
+}
+*/
+
+.home .article img { width: 100%; }
+.about .article img, .crew .article img, .left { 
+    margin: 0 1em 1em 0;
+    float: left; 
+}
+.about .main .article { background: url(../img/about/logo.png) no-repeat 0 2em; }
+.about .main .article p { min-height: 384px; }
+.about .spacer {
+    clear: left;
+    float: left;
+    min-width: 100px;
+}
+.spacer.dim1 { height: 15px; width: 250px; }
+.spacer.dim2 { height: 18px; width: 250px; }
+.spacer.dim3 { height: 15px; width: 250px; }
+.spacer.dim4 { height: 18px; width: 290px; }
+.spacer.dim5 { height: 15px; width: 280px; }
+.spacer.dim6 { height: 18px; width: 270px; }
+.spacer.dim7 { height: 18px; width: 280px; }
+.spacer.dim8 { height: 18px; width: 290px; }
+.spacer.dim9 { height: 70px; width: 300px; }
+.spacer.dim10 { height: 40px; width: 290px; }
+.spacer.dim11 { height: 46px; width: 270px; }
+.spacer.dim12 { height: 70px; width: 160px; }
+
+.where h3 { margin-top: 1em; }
+.where .article img, .right { 
+    margin: 0 0 1em 1em;
+    float: right; 
+}
+/*gallery*/
+.gallery #main_image { text-align: center; }
+.gallery #main_image .caption { font-style: italic; }
+.gallery .galleria { 
+    margin: 1em 5px 1em;
+    width: 100%; 
+}
+.gallery .galleria li { border: 3px solid silver; }
+.gallery .gallery .nav { 
+    clear: left;
+    padding-bottom: 1em;
+    text-align: center; 
+}
+.gallery .gallery .nav a { 
+    text-decoration: none;
+}
+
+.footer { 
+    background-color: Black; 
+    position: relative;
+}
+.footer, .footer a, footer a:hover, .footer a:active,
+.footer a:visited, .footer a:link { color: White; }
+.footer ul, .footer li {
+    display: inline;
+    list-style-type: none;
+}
+.footer .reference {
+    margin: 0 0 0 0.5em;
+}
+.footer .info {
+    position: absolute;
+    margin: 0;
+    right: 0.5em;
+}
+.footer li:before {
+	content: "| ";
+}
+.footer li:first-child:before {
+	content: "";
+}
+/* general purpose */
+.hidden { display: none; }

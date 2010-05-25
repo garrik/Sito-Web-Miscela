@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Language" content="it" />
+    <title>Associazione Miscela</title>
+    <meta name="Keywords" content="associazione, miscela, rock, festival, etica, bella, musica, arte, spettacolo, ambiente, giovani" />
+    <meta name="Description" content="Il sito ufficiale dell'Associazione Miscela." />
+	<link href="img/miscela.ico" rel="icon" type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />	
+    <link rel="stylesheet" href="css/miscela.css" type="text/css" />	
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.cycle.min.js" type="text/javascript"></script>
+    <script type="text/javascript" >
+        $(function() {
+            // newsletter
+            $("#wrap-newsletter form button").click(function() {
+                var category = this.form.elements["category"].value;
+                var email = this.form.elements["email"].value;
+                var message = [];
+
+                // validate and process form
+                if (category.length === 0) {
+                    message.push("Il campo 'Sono un' è obbligatorio");
+                }
+                if (email.length === 0) {
+                    message.push("Il campo E-mail è obbligatorio");
+                }
+                else if (!/^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/.test(email)) {
+                    message.push("La E-mail inserita non è valida");
+                }
+
+                if (message.length) {
+                    $('#message').html(message.join(".<br/>"));
+                    $('#message').addClass("error").show();
+                }
+                else {
+                    // clear messages
+                    // form submit
+                    var dataString = "category=" + category + "&email=" + email;
+                    $.ajax({
+                        type: "POST",
+                        url: "subscribe.aspx",
+                        data: dataString,
+                        success: function(message) {
+                            $('#wrap-newsletter').html("<div id='message' class='hidden'></div>");
+                            if (/^Grazie/.test(message)) {
+                                $('#message').html(message);
+                                $('#message').addClass("success").show();
+                            }
+                            else {
+                                $('#message').html(message);
+                                $('#message').addClass("error").show();
+                            }
+                        }
+                    });
+                }
+                $('#wrap-newsletter').html("<div id='wait'>Operazione in corso...</div>");
+                return false;
+            });
+            // shop
+            var slideshow = $('.slideshow:first');
+            var cycleOptions = {
+                fx: 'fade',
+                timeout: 10000,
+//                pager: '.slideshow:eq(0)',
+//                pauseOnPagerHover: 1,
+                next: '.slideshow:eq(0) img'
+            }
+            slideshow.cycle(cycleOptions);
+            cycleOptions = {
+                fx: 'fade',
+                timeout: 10000,
+                delay: 2000,
+//                pager: '.slideshow:eq(1)',
+//                pauseOnPagerHover: 1,
+                next: '.slideshow:eq(1) img'
+            }
+            slideshow.next().cycle(cycleOptions);
+            cycleOptions = {
+                fx: 'fade',
+                timeout: 10000,
+                delay: 4000,
+//                pager: '.slideshow:eq(2)',
+//                pauseOnPagerHover: 1,
+                next: '.slideshow:eq(2) img'
+            }
+            slideshow.next().next().cycle(cycleOptions);
+            // video
+            videoObjs = [
+            '<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/u2EJLEGmvgQ&hl=it_IT&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/u2EJLEGmvgQ&hl=it_IT&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>',
+            '<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/kzrfT0jwS9M&hl=it_IT&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/kzrfT0jwS9M&hl=it_IT&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>',
+            '<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/t3chD5QVR7s&hl=it_IT&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/t3chD5QVR7s&hl=it_IT&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>',
+            '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/G6F_iP-F7Fw&hl=it_IT&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/G6F_iP-F7Fw&hl=it_IT&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>'
+          ];
+            $('a[href^=\\#video-]').each(function() {
+                var _this = $(this);
+                var index = _this.attr('href').substring(7);
+                $(this).click(function() {
+                    var container = $('#video').html(videoObjs[index]);
+                });
+            });
+            $('a[href^=\\#video-1]').click();
+        });
+    </script>
+</head>
+<body class="community">
+<div class="container">
+    <div class="header span-24 last">
+        <div class="aside span-6">
+            <h1>
+                <a href="http://www.associazionemiscela.it/home.htm">
+                    <img alt="Associazione Miscela" src="img/MiscelaLogo.png" />
+                </a>
+            </h1>
+        </div>
+        <div class="span-18 last">
+            <ul class="nav">
+              <li><a href="news.aspx">News</a></li>
+              <li><a href="events.htm">Eventi</a></li>
+              <li><a href="about.htm">Miscela</a></li>
+              <li><a href="partners.htm">Partner</a></li>
+              <li class="selected"><a href="community.htm">Community</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="aside span-6">
+        <div class="area"><div>Newsletter</div></div>
+        <div id="wrap-newsletter">
+            <div class="headline">
+                <div class="placeholder">
+                    <h4>Entra nella rete Miscela</h4>
+                </div>
+                <noscript>ATTENZIONE! Devi avere javascript per poterti iscrivere alla newsletter!</noscript>
+                <div id="message" class="hidden"></div>
+                <p>
+                    Vuoi ricevere la nostra Newsletter <em>gratuita</em> con tutti
+                    gli aggiornamenti, le novità e le sorprese?<br />
+                    Inserisci qui il tuo indirizzo e-mail:
+                </p>
+                <form action="" method="">
+                    <p>
+	                    <label for="category">Sono un*</label>
+	                    <select id="category">
+		                    <option></option>
+		                    <option value="1">Giornalista</option>
+		                    <option value="2">Musicista</option>
+		                    <option value="3">Addetto ai lavori</option>
+		                    <option value="4">Altro</option>
+	                    </select>
+                    </p>
+                    <p>
+	                    <label for="email">E-mail*</label>
+	                    <input type="text" id="email" />
+                    </p>
+                    <p>
+                        <button type="submit">ISCRIVIMI!</button>
+                    </p>
+                </form>
+                <p>
+                    <small>I campi contrassegnati dall'asterisco (*) sono obbligatori.</small>
+                </p>
+                <p>
+                    <small>Se non vuoi più usufruire di questo servizio di informazione puoi inviare all'indirizzo <span class="email">miscela.stampa (at) libero.it</span> una e-mail con scritto "Cancellami!" nell'oggetto e nel testo</small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="main span-18 last">
+        <div>
+            <div class="area"><div>Shop</div></div>
+            <h2>Gadget Miscela</h2>
+            <div class="slideshow magliette span-6">
+                <div class="slide">
+                    <img src="img/shop/uomo_front_bianca.jpg" />
+                    <p><strong>T-Shirt da uomo bianca</strong><br />
+                        Taglie disponibili: S, M, L, XL<br />
+                        Prezzo: 6€ più spese di spedizione
+                    </p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/uomo_retro_bianca.jpg" />
+                    <p><strong>T-Shirt da uomo bianca</strong><br />
+                        Taglie disponibili: S, M, L, XL<br />
+                        Prezzo: 6€ più spese di spedizione
+                    </p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/uomo_retro_nera.jpg" />
+                    <p><strong>T-Shirt da uomo nera</strong>, 
+                        disponibile anche nei colori: 
+                        fucsia <span class="fucsia">&nbsp;&nbsp;&nbsp;</span>, rosso <span class="rosso">&nbsp;&nbsp;&nbsp;</span> e blu <span class="blu">&nbsp;&nbsp;&nbsp;</span> (colorazione a stampa bianca su tessuto colorato)<br />
+                        Taglie disponibili: S, M, L, XL<br />
+                        Prezzo: 6€ più spese di spedizione
+                    </p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/donna_front_bianca.jpg" />
+                    <p><strong>T-Shirt da donna bianca</strong><br />
+                        Taglie disponibili: S, M, L<br />
+                        Prezzo: 6€ più spese di spedizione
+                    </p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/donna_retro_nera.jpg" />
+                    <p><strong>T-Shirt da donna nera</strong>, 
+                        disponibile anche nei colori: 
+                        fucsia <span class="fucsia">&nbsp;&nbsp;&nbsp;</span>, rosso <span class="rosso">&nbsp;&nbsp;&nbsp;</span> e blu <span class="blu">&nbsp;&nbsp;&nbsp;</span> (colorazione a stampa bianca su tessuto colorato)<br />
+                        Taglie disponibili: S, M, L<br />
+                        Prezzo: 6€ più spese di spedizione
+                    </p>
+                </div>
+            </div>
+            <div class="slideshow spille span-6">
+                <div class="slide">
+                    <img src="img/shop/spilla_love.jpg" />
+                    <p><strong>Spilla 'I love Miscela'</strong><br />Prezzo: 1€ più spese di spedizione</p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/spilla_rock.jpg" />
+                    <p><strong>Spilla 'Miscela Rock'</strong><br />Prezzo: 1€ più spese di spedizione</p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/spilla_nera.jpg" />
+                    <p><strong>Spilla 'Miscela Crew'</strong><br />Prezzo: 1€ più spese di spedizione</p>
+                </div>
+            </div>
+            <div class="slideshow varie span-6 last">
+                <div class="slide">
+                    <img src="img/shop/portapass.jpg" />
+                    <p><strong>Portapass</strong><br />Prezzo: 3€ più spese di spedizione</p>
+                </div>
+                <div class="slide">
+                    <img src="img/shop/tazza.jpg" />
+                    <p><strong>Tazza</strong><br />Prezzo: 10€ più spese di spedizione</p>
+                </div>
+            </div>
+            <div class="span-18 last">
+                <p>Per acquistare uno dei gadget miscela inviare una mail all'indirizzo di posta cri(at)associazionemiscela.it scrivendo in oggetto <em>SHOP MISCELA</em>. Le informazioni sul metodo di pagamento verranno concordate al momento della richiesta di ordine.</p>
+            </div>
+        </div>
+        <div style="clear: both;">
+            <div class="area"><div>Video</div></div>
+            <h2>I video più divertenti</h2>
+            <div id="video" class="span-14"></div>
+            <div id="videos" class="span-4 last">
+                <ul>
+                    <li>
+                        <a href="#video-1">My video 1</a>
+                    </li>
+                    <li>
+                        <a href="#video-2">My video 2</a>
+                    </li>
+                    <li>
+                        <a href="#video-3">My video 3</a>
+                    </li>
+                    <li>
+                        <a href="#video-4">My video 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer span-24 last">
+        <address class="vcard">
+            <abbr title="Associazione Culturale">Associazione</abbr> <a href="http://www.associazionemiscela.it" class="fn org url">Miscela</a>
+            <span class="adr">
+                <span class="street-address">Piazza Ruggia c/o Gianni Rodari</span>,
+                <span class="locality">Romano Canavese</span>  
+                (<abbr class="region" title="Torino">TO</abbr>)
+                <span class="postal-code">10090</span>
+                <span class="country-name">Italia</span>
+            </span>
+            <span>PI 10046370010</span>
+        </address>
+        <ul class="info">
+            <li>
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/it/">Copyright</a>
+            </li>
+            <li>
+                <a href="/contacts.htm">Contatti</a>
+            </li>
+            <li>
+                <a href="/credits.htm">Crediti</a>
+            </li>
+        </ul>
+	</div>
+</div>
+</body>
+</html>

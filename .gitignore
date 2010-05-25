@@ -1,0 +1,11 @@
+#Escludo i file di visual studio
+obj*
+Properties*
+# Escludo il codice server side
+aspnet_client*
+*.aspx
+*.aspx.cs
+*.designer.cs
+Web.config
+# Escludi preview di windows
+Thumbs.db
