@@ -12,6 +12,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.dbj_sound.js"></script>
     <script type="text/javascript">
+        //<!--
         var headline_count;
         var headline_interval;
         var old_headline = 0;
@@ -122,9 +123,21 @@
             });
             old_headline = current_headline;
         }
+        //-->
     </script>
 </head>
 <body class="home">
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16636362-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 <div class="container">
     <div class="header span-24 last">
         <div class="aside span-6">
@@ -157,34 +170,53 @@
         </div>
     </div>
     <div class="main span-18 last">
-        <div class="article last">
+        <div class="main-zone last">
             <div class="area"><div>Main News</div></div>
             <h2 class="hidden">JMC</h2>
-			<img alt="Jamaica Miscela Contest" src="img/index/jmc2.jpg" />
+            <a href="events.htm" class="manifesto">
+    			<img alt="Jamaica Miscela Contest" src="img/index/jmc2.jpg" />
+    		</a>
         </div>
-        <div class="article span-6">
+        <div class="left-zone span-6">
             <div class="area"><div>Main Event</div></div>
-<!--			<center>
-				<fieldset style="border:2px solid BLACK; width:500;">
-					<font color="BLACK">
-						<font size="4">
-							<br />GRANDI NOVITA' PER LA SECONDA EDIZIONE DEL<br /> 
-							<br />
-							<font color="RED">Jamaica Miscela Contest!!!!</font>
-							<font color="BLACK"><br /><br />SCARICA IL BANDO E ISCRIVITI ORA!!!!!</font>
-						</font><br /><br />
-						<a target="red" href="http://www.msplinks.com/MDFodHRwOi8vd3d3LnpzaGFyZS5uZXQvZG93bmxvYWQvNjk0MDQzNjc3MWZiZDM2ZS8=">
-							<font color="RED"><font size="7">JMC2</font></font>
-						</a>
-					</font>
-				</fieldset> 
-			</center>
--->        </div>
-        <div class="article span-6">
-            <div class="area"><div>Shop</div></div>
+            <div id="hcalendar-MISCELA-ROCK-FESTIVAL-8" class="vevent bando">
+                <a href="http://www.msplinks.com/MDFodHRwOi8vd3d3LnpzaGFyZS5uZXQvZG93bmxvYWQvNzQzODQ5NzZhM2QyOTQwNC8=" target="_blank">
+                    SCARICA IL BANDO E ISCRIVITI ORA!!!!!<br /><br />
+                </a>
+                <span class="date">
+                    <abbr title="2010-09-03" class="dtstart">3</abbr>/4/<abbr title="2010-09-06" class="dtend">5 Settembre 2010</abbr><br />
+                </span>
+                <abbr title="MISCELA ROCK FESTIVAL 8" class="summary">MRF8</abbr><br /> 
+                <span class="in">
+                    a <span class="location">Romano Canavese</span><br />
+                </span>
+                <img src="http://www.ibolli.it/hgif/home/f_italia.gif" />
+            </div>
         </div>
-        <div class="article span-6 last">
+        <div class="center-zone span-6">
+            <div class="area"><div>Shop</div></div>
+            <a href="community.htm" class="manifesto">
+                <img src="img/index/merchandise.jpg" alt="Merchandising" title="Le magliette del Miscela"/>
+            </a>
+            <p>
+                <strong>Nuove T-shirt Miscela</strong><br />
+                <small>Acquista online i nostri gadget!</small>
+            </p>
+        </div>
+        <div class="right-zone span-6 last">
             <div class="area"><div>Attività</div></div>
+            <a href="pd.htm" class="manifesto">
+                <img src="img/index/pdi2010.jpg" alt="Portami il diario" title="Portami il diario"/>
+            </a>
+            <div id="hcalendar-Portami-il-diario" class="vevent">
+                <span class="date">
+                    <abbr title="2010-05-29" class="dtstart">5</abbr><abbr title="2010-05-30" class="dtend"></abbr><br />
+                </span>
+                <strong class="summary">Portami il diario</strong><br /> 
+                <span class="in">
+                    a <span class="location">Ivrea</span><br />
+                </span>
+            </div>
         </div>
     </div>
     <div class="footer span-24 last">
@@ -207,7 +239,7 @@
                 <a href="/contacts.htm">Contatti</a>
             </li>
             <li>
-                <a href="/credits.htm">Crediti</a>
+                <a href="/credits.htm">Ringraziamenti</a>
             </li>
         </ul>
 	</div>

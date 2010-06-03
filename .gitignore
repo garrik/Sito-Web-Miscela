@@ -1,7 +1,10 @@
 #Escludo i file di visual studio
 obj*
 Properties*
+*.csproj
+*.csproj.user
 # Escludo il codice server side
+bin*
 aspnet_client*
 *.aspx
 *.aspx.cs
@@ -9,3 +12,6 @@ aspnet_client*
 Web.config
 # Escludi preview di windows
 Thumbs.db
+#Altro
+*.txt
+*.bak

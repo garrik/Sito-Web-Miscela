@@ -102,14 +102,15 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
 .mrf .placeholder { background: transparent url(../img/miscela-h.jpg) no-repeat; }
 .pd .placeholder { background: transparent url(../img/pd-h.jpg) no-repeat; }
 .asf .placeholder { background: transparent url(../img/asf-h.jpg) no-repeat; }
+.crew .placeholder { background: transparent url(../img/crew-h.jpg) no-repeat; }
 .jmc .placeholder h4 { visibility: hidden; }
 .mrf .placeholder h4, .pd .placeholder h4,
-.asf .placeholder h4 { 
+.asf .placeholder h4, .crew .placeholder h4 { 
     border-color: #fff;
     color: #fff;
 }
 
-.main .article:first-child { margin-bottom: 1.5em; }
+/*.main .article { margin-bottom: 1.5em; }*/
 .main h2 {
     color: #da0019;
     font-style: italic;
@@ -140,7 +141,11 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
 .splash h1, .contacts h2, 
 .crew h2, .partners h2 { display: none; }
 /* home */
-.home .article img { 
+.home .main-zone,
+.home .left-zone,
+.home .center-zone,
+.home .right-zone { margin-bottom: 1.5em; }
+.home .main-zone img { 
     max-height: 250px;
     width: 100%;
 }
@@ -149,6 +154,21 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
     padding-bottom: 2em;
     text-align: center;
 }
+.home .bando {
+    padding: 1em;
+    text-align: center;
+}
+.home .bando img { 
+    width: 100%;
+    max-height: 100px; 
+}
+.home .bando .summary {
+    color: #DA0019;
+    font-size: 350%;
+}
+.manifesto { display: block; }
+.home .vevent .date, .home .vevent .in { display: none; }
+
 /* about */
 .about .article img, .crew .article img, .left { 
     margin: 0 1em 1em 0;
@@ -253,6 +273,7 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
     margin-left: 0;
 }
 /* community */
+.community .multimedia { clear: both; }
 .community .aside .area div { background-position: 120px 0; }
 .community form p { margin-bottom: 1em; }
 .community form p+p+p { text-align: center; }
@@ -260,6 +281,11 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
 .slideshow img {
     height: 210px;
     width: 226px;
+}
+.nero {
+    background-color: #000;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
 .fucsia {
     background-color: #ff6ec1;
