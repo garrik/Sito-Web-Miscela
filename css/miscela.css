@@ -10,7 +10,8 @@
  * 1px = 1/12 = 0.083em
  */
 a, a:link, a:hover, a:visited, a:active { color: #000; }
-.reserved { text-align: right; }
+#toolbar { text-align: right; }
+#toolbar a { margin-left: 1em; }
 .header .nav, .header .nav li {
     list-style-type: none;
     float: left;
@@ -302,6 +303,11 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 }
+.community .playerInnerBox_gsvb .player_gsvb {
+  width: 480px;
+  height: 380px;
+}
+
 
 .footer { 
     background-color: Black; 

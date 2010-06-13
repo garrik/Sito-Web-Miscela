@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />	
     <link rel="stylesheet" href="css/miscela.css" type="text/css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dbj_sound.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
     <script type="text/javascript">
         //<!--
         var headline_count;
@@ -68,20 +68,27 @@
                 }
             });
             // sound
-//            $.dbj_sound.play($("a[href^=sound]")[0], true);
-//            $("a[href^=sound]").click(function(e){
-//                e.preventDefault();
-//                $.dbj_sound.enabledisable();
-//            });
-            /*
-            var filename = "sound/Bella_ci_sta.wma";
-            if ($.browser.msie) {
-            $("body").html('<bgsound src="' + filename + '" />');
-            }
-            else {
-            $("body").html('<embed src="' + filename + '" autostart="true" width="144" height="60">');
-            }
-            */
+            var sound = $("#audio-player");
+            sound.jPlayer({
+                ready: function() {
+                    this.element.jPlayer("setFile", "sound/Bella_ci_sta.mp3", "sound/Bella_ci_sta.ogg").jPlayer("play");
+                },
+                volume: 50,
+                oggSupport: true
+            });
+            sound.jPlayer("onSoundComplete", function() {
+                this.element.jPlayer("play"); // Auto-Repeat
+            });
+            // toggle audio
+            $("a[href=#bella]").click(function() {
+                if (sound.jPlayer("getData", "diag.isPlaying")) {
+                    sound.jPlayer("stop");
+                    this.innerHTML = "Bella! Ci sta!";
+                } else {
+                    sound.jPlayer("play");
+                    this.innerHTML = "Ferma la musica";
+                }
+            });
         });
 
         function headline_rotate() {
@@ -149,8 +156,8 @@
         </div>
         <div class="span-18 last">
             <div id="toolbar" class="reserved">
-<!--                <a rel="nofollow" href="sound/Bella_ci_sta.wma">Bella</a>
--->                <a rel="nofollow" href="Admin/Admin.aspx">Area riservata</a>
+                <a rel="nofollow" href="#bella">Ferma la musica</a>
+                <a rel="nofollow" href="Admin/Admin.aspx">Area riservata</a>
             </div>
             <ul class="nav">
               <li><a href="news.aspx">News</a></li>
@@ -243,6 +250,7 @@
             </li>
         </ul>
 	</div>
+	<div id="audio-player"></div>
 </div>
 </body>
 </html>
